@@ -10,7 +10,7 @@ class CrewRepository:
     @staticmethod
     async def get_by_movie_id(movie_id: int) -> List[CrewOrm]:
         async with new_session() as session:
-            stmt = select(CrewOrm).where(CrewOrm.movie_id == movie_id)
+            stmt = select(CrewOrm).where(CrewOrm.movie_id == movie_id).limit(5)
             result = await session.execute(stmt)
             return result.scalars().all()
 

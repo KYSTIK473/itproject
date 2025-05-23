@@ -51,7 +51,6 @@ async def login_user(login_data: UserLogin, response: Response) -> dict:
         path="/",
     )
     token_get = await TokenRep.upsert_token(user.id, token)
-    print(token_get.token)
     return {
         "message": "Вы успешно авторизованы!",
         "user_id": user.id,

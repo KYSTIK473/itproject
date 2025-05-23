@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'Content-Type': 'application/json',
                 // Добавьте авторизацию при необходимости
                 // 'Authorization': `Bearer ${token}`
-              },
+            },
         });
-        
+
         if (!response.ok) throw new Error('Ошибка загрузки данных');
-        
+
         const userData = await response.json();
         fillForm(userData);
-        
+
     } catch (error) {
         showMessage(error.message, 'error');
     }
@@ -52,7 +52,7 @@ async function updateProfile() {
 
         showMessage('Профиль успешно обновлен!', 'success');
         document.getElementById('password').value = '';
-        
+
     } catch (error) {
         showMessage(error.message, 'error');
     }
@@ -73,12 +73,12 @@ async function logout() {
         if (!response.ok) throw new Error(result.detail || 'Ошибка обновления');
 
         showMessage('Logout', 'success');
-        
+
     } catch (error) {
         showMessage(error.message, 'error');
     }
 
-    window.location.href = '/front/pages/index.html';
+    window.location.href = '/pages/index.html';
 }
 
 // Переключение видимости пароля
@@ -93,7 +93,7 @@ function showMessage(text, type = 'info') {
     messageEl.textContent = text;
     messageEl.className = type + ' message';
     messageEl.style.display = 'block';
-    
+
     setTimeout(() => {
         messageEl.style.display = 'none';
     }, 3000);

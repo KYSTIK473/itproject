@@ -270,4 +270,85 @@ h3 {
     }
 }
 
-/* --- END OF FILE movie_detail.css --- */
+/* --- Начало стилей для секций "Актерский состав" и "Съемочная группа" --- */
+
+.movie-info-section { 
+    /* Эти стили остаются общими для секции, где бы она ни находилась */
+    /* margin-top: 30px;  УБИРАЕМ ИЛИ УМЕНЬШАЕМ, ТАК КАК FLEX GAP ДАСТ ОТСТУП */
+    padding-top: 20px; 
+    border-top: 1px solid #383838; 
+}
+
+/* НОВОЕ ПРАВИЛО или МОДИФИКАЦИЯ СУЩЕСТВУЮЩЕГО */
+/* Стили для .movie-info-section, когда он является прямым потомком #movie-detail-container */
+#movie-detail-container > .movie-info-section {
+    flex-basis: 100%; /* Занимает всю ширину flex-контейнера */
+    width: 100%;      /* Дополнительно для некоторых браузеров и сценариев */
+    margin-top: 0;    /* Отступ сверху теперь будет управляться 'gap' родителя (#movie-detail-container) */
+    /* padding-top: 20px; и border-top: 1px solid #383838; остаются от общего .movie-info-section */
+}
+
+
+.movie-info-section h3 { 
+    color: #e0e0e0;      
+    font-size: 1.6em;    
+    margin-bottom: 15px; 
+    padding-bottom: 8px; 
+    border-bottom: 1px solid #444444; 
+    font-weight: 600; 
+}
+
+#cast-list-container ul,
+#crew-list-container ul {
+    list-style-type: none; 
+    padding-left: 0;       
+    display: grid;         
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 15px;             
+}
+
+#cast-list-container li,
+#crew-list-container li {
+    background-color: #302b3a; 
+    padding: 12px 15px;       
+    border-radius: 6px;       
+    border: 1px solid #4a435c; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); 
+    color: #d1d1d1;           
+    font-size: 0.95em;
+    line-height: 1.5;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#cast-list-container li:hover,
+#crew-list-container li:hover {
+    background-color: #3c364a; 
+    border-color: #6F00FF; 
+}
+
+
+#cast-list-container .character-name { 
+    color: #a8a0b7;        
+    font-style: italic;
+    font-size: 0.9em;
+    display: block;        
+    margin-top: 4px;
+}
+
+#crew-list-container .job-title { 
+    font-weight: bold;
+    color: #c0b8d0;       
+    margin-right: 8px;    
+}
+
+/* Адаптивные стили остаются без изменений, если они не конфликтуют */
+@media (max-width: 768px) {
+    /* ... ваши адаптивные стили ... */
+    /* Возможно, для #movie-detail-container > .movie-info-section не понадобятся особые адаптивные правила, 
+       так как flex-basis: 100% уже делает их полноширинными. 
+       Адаптация внутреннего содержимого (ul, li) уже есть. */
+}
+
+/* ... и так далее ... */
+
+/* --- Конец стилей для секций "Актерский состав" и "Съемочная группа" --- */

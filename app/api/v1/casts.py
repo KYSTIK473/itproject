@@ -21,4 +21,4 @@ async def get_cast_by_movie(
             )
         return crew
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=404, detail=f"No crew found for movie with id {movie_id}")
