@@ -81,3 +81,30 @@ class TokenORM(Model):
 
     def __repr__(self):
         return f"{self.__class__.__name__}(id={self.id})"
+
+
+class CrewOrm(Model):
+    __tablename__ = "crew"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    movie_id: Mapped[int] = mapped_column(Integer, nullable=True)
+    credit_id: Mapped[str] = mapped_column(String(100), nullable=True)
+    department: Mapped[str] = mapped_column(String(100), nullable=True)
+    gender: Mapped[int] = mapped_column(Integer, nullable=True)
+    person_id: Mapped[int] = mapped_column(Integer, nullable=True)
+    job: Mapped[str] = mapped_column(String(200), nullable=True)
+    name: Mapped[str] = mapped_column(String(200), nullable=True)
+
+
+class CastOrm(Model):
+    __tablename__ = "cast"
+
+    id = Column(Integer, primary_key=True, index=True)
+    movie_id = Column(Integer, nullable=True)
+    cast_id = Column(Integer, nullable=True)
+    character = Column(String, nullable=True)
+    credit_id = Column(String, nullable=True)
+    gender = Column(Integer, nullable=True)
+    id_person = Column(Integer, nullable=True)
+    name = Column(String, nullable=True)
+    order = Column(Integer, nullable=True)

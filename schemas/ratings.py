@@ -3,8 +3,8 @@ from typing import Optional
 
 
 class ratingBase(BaseModel):
-    user_id: Optional[int] = None
-    movie_id: Optional[int] = None
+    userid: Optional[int] = None
+    movieid: Optional[int] = None
     rating: Optional[float] = None
     timestamp: Optional[float] = None
 

@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from app.api.v1.router import router as base_router
-from app.api.v1 import auth, films, ratings, users
+from app.api.v1 import auth, films, ratings, users, crew, casts
 from app.db.setup import create_tables
 
 
@@ -31,6 +31,8 @@ app.include_router(auth.auth)
 app.include_router(users.usr)
 app.include_router(ratings.rtng)
 app.include_router(films.flm)
+app.include_router(crew.router)
+app.include_router(casts.router)
 
 if __name__ == '__main__':
     uvicorn.run('main:app', reload=True)
