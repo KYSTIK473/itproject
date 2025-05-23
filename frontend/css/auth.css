@@ -1,0 +1,133 @@
+/* Основные стили */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(39, 6, 89, 1) 100%); /* */
+    height: 100vh; /* */
+    display: flex; /* */
+    justify-content: center; /* */
+    align-items: center; /* */
+    font-family: 'Poppins', sans-serif; /* */
+    color: white; /* */
+}
+
+/* Контейнер формы */
+.wrapper {
+    background: rgba(255, 255, 255, 0.1); /* */
+    padding: 40px; /* */
+    border-radius: 10px; /* */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* */
+    width: 100%; /* */
+    max-width: 400px; /* */
+}
+
+/* Заголовок */
+h1 {
+    text-align: center; /* */
+    margin-bottom: 30px; /* */
+    color: #6F00FF; /* */
+    font-weight: 600; /* */
+}
+
+/* Поля ввода */
+.input-box {
+    margin-bottom: 20px; /* */
+}
+
+input { /* Этот стиль применяется ко всем input, включая type="email" и type="password" */
+    width: 100%; /* */
+    padding: 12px; /* */
+    background: rgba(255, 255, 255, 0.1); /* */
+    border: 1px solid #6F00FF; /* */
+    border-radius: 5px; /* */
+    color: white; /* */
+    font-size: 16px; /* */
+    outline: none; /* */
+    box-sizing: border-box; /* Добавлено для корректного расчета ширины с padding */
+}
+
+input:focus {
+    border-color: #8a2be2; /* */
+}
+
+/* Кнопка отправки формы */
+button[type="submit"] { /* Уточнил селектор для кнопки формы */
+    width: 100%; /* */
+    padding: 12px; /* */
+    background: #6F00FF; /* */
+    color: white; /* */
+    border: none; /* */
+    border-radius: 50px; /* */
+    cursor: pointer; /* */
+    font-weight: 600; /* */
+    transition: all 0.3s; /* */
+    font-size: 1em; /* Добавил для консистентности */
+}
+
+button[type="submit"]:hover {
+    background: #8a2be2; /* */
+    transform: scale(1.02); /* */
+}#6F00FF
+
+/* Ссылка на регистрацию */
+.register-link {
+    text-align: center; /* */
+    margin-top: 20px; /* */
+}
+
+.register-link a {
+    color: #6F00FF; /* */
+    text-decoration: none; /* */
+    transition: color 0.3s; /* */
+}
+
+.register-link a:hover {
+    color: #8a2be2; /* */
+}
+
+/* ---- НОВЫЕ СТИЛИ ---- */
+/* Контейнер для кнопки "На Главную" */
+.home-link-container {
+    text-align: center; /* Центрируем ссылку-кнопку */
+    margin-top: 25px;   /* Отступ сверху от блока регистрации */
+}
+
+/* Общий класс для ссылок, стилизованных под кнопки */
+.button-link {
+    display: inline-block; /* Чтобы padding и другие блочные свойства работали корректно */
+    padding: 12px 25px;    /* Отступы как у основной кнопки */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;   /* Скругление как у основной кнопки */
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 1em;        /* Размер шрифта как у основной кнопки */
+    border: 1px solid transparent; /* Для сохранения размера при добавлении рамки при наведении, если нужно */
+}
+
+/* Специфичный стиль для кнопки "На Главную" */
+.home-button {
+    background-color: #6F00FF; /* Другой цвет, чтобы отличалась от "Войти" */
+    border-color: #6F00FF;
+}
+
+.home-button:hover {
+    background-color: #8a2be2; /* Более темный синий при наведении */
+    border-color: #8a2be2;
+    color: white; /* Убедимся, что цвет текста не меняется */
+    transform: scale(1.02);
+}
+/* ---- КОНЕЦ НОВЫХ СТИЛЕЙ ---- */
+
+
+/* Адаптив для мобилок */
+@media (max-width: 480px) {
+    .wrapper {
+        margin: 20px; /* */
+        padding: 25px; /* */
+    }
+    /* Можно добавить стили для .home-button на мобильных, если нужно */
+    .home-button {
+        padding: 10px 20px; /* Немного уменьшить отступы на маленьких экранах */
+    }
+}

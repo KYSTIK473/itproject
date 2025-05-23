@@ -1,0 +1,273 @@
+/* --- START OF FILE movie_detail.css --- */
+
+/* Общий контейнер для секций на странице, если он используется для movie-detail-container и similar-movies-container */
+/* Если #movie-detail-container и #similar-movies-container не должны быть flex-контейнерами сами по себе, 
+   а только их содержимое, то эти стили для .container нужно пересмотреть или применять более специфично.
+   Судя по HTML, .container используется как обертка, а flex-поведение задается для #movie-detail-container ниже.
+   Поэтому, возможно, display: flex для общего .container здесь не нужен.
+*/
+.container { /* Этот .container используется для #movie-detail-container и #similar-movies-container в HTML */
+    width: 90%;
+    max-width: 1000px; /* Общая максимальная ширина для секций */
+    margin-left: auto; /* Центрирование */
+    margin-right: auto; /* Центрирование */
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 30px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* display: flex;  - УБРАНО, так как дочерние элементы #movie-detail-container и #similar-movies-container сами управляют своим layout */
+    /* flex-wrap: wrap; - УБРАНО */
+    /* gap: 30px; - УБРАНО */
+    margin-bottom: 30px; /* Добавим отступ снизу для каждого .container */
+}
+
+
+/* Стили для основного блока деталей фильма */
+#movie-detail-container {
+    display: flex; /* Включаем flex для расположения постера и деталей */
+    flex-wrap: wrap; /* Позволяем перенос на новую строку на малых экранах, если нужно */
+    gap: 30px; /* Отступ между постером и деталями */
+    /* background, padding, border-radius, box-shadow уже унаследованы от .container */
+}
+
+.movie-poster {
+    flex: 0 0 300px; /* Не будет расти, не будет сжиматься, базовая ширина 300px */
+    height: 450px; 
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #6F00FF; 
+}
+
+.movie-details {
+    flex: 1; /* Займет оставшееся пространство */
+    min-width: 300px; /* Минимальная ширина для блока деталей */
+    color: #e0e0e0; /* Общий цвет текста для деталей, если не переопределен */
+}
+
+.movie-details h1 { /* Специфичный H1 для деталей фильма */
+    color: #6F00FF; 
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 2.8em; 
+    font-weight: 700;
+}
+
+.tagline {
+    font-style: italic;
+    color: #bbb; 
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.overview {
+    line-height: 1.7; 
+    margin-bottom: 30px;
+    font-size: 1.05em;
+    color: #cccccc;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 15px 25px; 
+    margin-bottom: 30px;
+    font-size: 1em;
+}
+
+.info-grid strong {
+    color: #e0e0e0;
+    font-weight: 600; 
+    white-space: nowrap; 
+}
+
+.info-grid span {
+    color: #ffffff; 
+}
+
+/* Общие стили для H3, если они нужны на этой странице вне #star-rating-section */
+/* Если h3 используется только для "Оцените фильм", то можно стилизовать #star-rating-section h3 */
+h3 { 
+    color: #007bff; /* Цвет из первого блока стилей */
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 600;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */ /* Можно убрать, если не везде нужно */
+    /* padding-bottom: 5px; */
+}
+
+
+#star-rating-section h3 { /* Специфичный H3 для секции оценки */
+    color: #e0e0e0; /* Сделаем текст светлым, чтобы сочетался с темой */
+    margin-bottom: 10px;
+    font-size: 1.5em; /* Немного увеличим */
+    border-bottom: none; /* Убираем общую черту для этого h3 */
+    padding-bottom: 0;
+}
+
+.stars { /* Контейнер для звезд */
+    cursor: pointer;
+    display: inline-block; /* Чтобы звезды были в строку и контейнер занимал нужную ширину */
+}
+
+.star { /* Стили для одной звезды */
+    font-size: 2.2em; /* Размер звезд */
+    color: #4a4a4a;    /* Цвет невыбранной звезды (темно-серый для контраста с фоном) */
+    margin: 0 3px;     /* Отступы между звездами */
+    transition: color 0.2s ease-in-out; 
+}
+
+.star:hover,
+.star.selected {
+    color: #f39c12; /* Цвет звезды при наведении или выборе (золотой) */
+}
+
+#rating-feedback {
+    /* min-height: 1.2em; уже в инлайн-стилях HTML */
+    /* margin-top: 10px; уже в инлайн-стилях HTML */
+    color: #cccccc;
+    font-style: italic;
+}
+
+#similar-movies-container h2.section-title { /* Заголовок "Похожие фильмы" */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em;
+    color: #e0e0e0; 
+    font-weight: 600;
+}
+
+.similar-movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center; 
+}
+
+/* Используются стили .movie-item из movies_list.css, 
+   но можно добавить специфичные переопределения для этого контекста */
+.similar-movies-grid > .movie-item {
+    width: calc(33.333% - 20px); /* 3 элемента в ряду, учитывая gap */
+    /* margin-bottom уже должен быть у .movie-item из movies_list.css */
+}
+.similar-movies-grid .movie-item .movie-info .overview { /* Ограничение высоты описания */
+    max-height: 60px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.similar-movies-grid .movie-item .movie-info h2 { 
+    font-size: 1.3em; 
+    margin-bottom: 0.3em;
+}
+
+
+/* Кнопка "Найти другие фильмы" / "Назад" */
+.back-button {
+    display: inline-block;
+    /* margin-top: 40px; /* Из первого блока, или 30px из HTML */
+    padding: 15px 30px; 
+    background-color: #6F00FF; 
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; 
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Добавлено из второго варианта кнопки */
+}
+.back-button:hover {
+    background-color: #8a2be2;
+    transform: scale(1.05);
+}
+
+/* Кнопка-ссылка "Авторизуйтесь" */
+.auth-link-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007bff; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+.auth-link-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    /* .container остается с width: 90%, max-width: 1000px; padding: 30px */
+    /* Адаптация для #movie-detail-container */
+    #movie-detail-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        /* padding: 20px; /* Если нужно уменьшить внутренний отступ для этого блока */
+    }
+    .movie-poster {
+        flex: none; /* Убираем flex-свойства, чтобы управлять шириной */
+        width: 80%;   /* Ширина относительно родителя */
+        max-width: 280px; /* Но не более этого значения */
+        height: auto; /* Высота подстраивается под ширину, сохраняя пропорции */
+    }
+    .movie-details {
+        min-width: unset; /* Сбрасываем min-width */
+        width: 100%;
+        text-align: center; 
+    }
+    .movie-details h1 { /* Уменьшаем заголовок на мобильных */
+        font-size: 2.2em;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr; 
+        text-align: left; 
+        gap: 8px 15px; /* Можно уменьшить gap */
+    }
+    .info-grid strong,
+    .info-grid span {
+        text-align: center; 
+        width: 100%;
+    }
+    .info-grid strong {
+        margin-bottom: 3px;
+    }
+
+    /* Адаптация для похожих фильмов */
+    .similar-movies-grid > .movie-item {
+        width: calc(50% - 10px); /* 2 в ряд на планшетах */
+    }
+    #similar-movies-container h2.section-title {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 576px) { /* Для еще меньших экранов */
+    .movie-poster {
+        max-width: 220px;
+    }
+    .movie-details h1 {
+        font-size: 1.8em;
+    }
+    .similar-movies-grid > .movie-item {
+        width: 100%; /* 1 в ряд на телефонах */
+        max-width: 300px; /* Ограничение, чтобы не растягивался слишком сильно */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .back-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
+
+/* --- END OF FILE movie_detail.css --- */

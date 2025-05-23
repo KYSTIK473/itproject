@@ -1,7 +1,7 @@
 from typing import Optional
 from sqlalchemy.orm import DeclarativeBase, Mapped
 from sqlalchemy.testing.schema import mapped_column
-from sqlalchemy import Float, Integer, String, Boolean, Text, ARRAY, Column
+from sqlalchemy import Float, Integer, String, Boolean, Text, ARRAY, Column, Date
 from sqlalchemy.ext.asyncio import AsyncAttrs
 
 
@@ -26,7 +26,7 @@ class FilmOrm(Model):
     original_language: Mapped[Optional[str]] = mapped_column(String(10))
     overview: Mapped[Optional[str]] = mapped_column(Text)
     popularity: Mapped[Optional[float]] = mapped_column(Float)
-    release_date: Mapped[Optional[str]] = mapped_column(String)  # Или Date если нужно
+    release_date: Mapped[Optional[str]] = mapped_column(Date)  # Или Date если нужно
     revenue: Mapped[Optional[float]] = mapped_column(Float)
     runtime: Mapped[Optional[int]] = mapped_column(Integer)
     status: Mapped[Optional[str]] = mapped_column(String(150))

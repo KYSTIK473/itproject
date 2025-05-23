@@ -18,7 +18,7 @@ rtng = APIRouter()
 async def like_film(
         request: Request,
         rating: float = Query(..., title="Оценка", description="Оценка фильма от 1 до 10", gt=0, le=10,
-                              alias="raiting"),  # валидация: 0
+                              alias="rating"),  # валидация: 0
         # < rating <= 10
         film_id: int = Query(..., title="ID фильма", description="ID фильма в базе данных", gt=0, alias="film_id")
         # валидация: film_id
@@ -72,11 +72,10 @@ async def get_user_movie_rating(
         )
 
         if not rating:
-            return {"message": "Пользователь не оценивал этот фильм"}
+            return {"rating": 0}
 
         return {
             "rating": rating.rating,
-            "rated_at": rating.timestamp
         }
 
     except Exception as e:

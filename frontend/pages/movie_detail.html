@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали фильма</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/movie_detail.css">
+    <!-- Added for .movie-item styles, ensure this path is correct -->
+    <link rel="stylesheet" href="../css/movies_list.css">
+</head>
+
+<body>
+    <div class="container" id="movie-detail-container">
+        <p>Загрузка деталей фильма...</p>
+    </div>
+
+    <div id="star-rating-section" style="display: none; margin-top: 20px; text-align: center;">
+        <h3>Оцените фильм:</h3>
+        <div id="star-rating-container" class="stars">
+        </div>
+        <p id="rating-feedback" style="margin-top: 10px; min-height: 1.2em;"></p>
+    </div>
+
+    <div id="auth-prompt-section" style="display: none; margin-top: 20px; text-align: center;">
+        <p>Хотите поставить оценку?
+            <a href="auth.html" class="auth-link-button">Авторизуйтесь</a>
+        </p>
+    </div>
+
+    <!-- Similar Movies Section -->
+    <div class="container" id="similar-movies-container" style="margin-top: 30px;">
+        <!-- Content will be populated by JavaScript -->
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="movies_list.html" class="back-button">Найти другие фильмы</a>
+    </div>
+
+    <script src="../scripts/movie_detail.js"></script>
+</body>
+
+</html>

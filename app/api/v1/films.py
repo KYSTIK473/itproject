@@ -1,3 +1,5 @@
+from datetime import datetime
+import time
 from typing import List, Optional
 from fastapi import Query, HTTPException, APIRouter
 
@@ -74,5 +76,13 @@ async def get_similarity(
     list_response = []
     for i in list_predictions:
         film = await FilmRepository.get_film_by_id(i)
+        try:
+            times = int(film.release_date)
+            release_date = datetime.fromtimestamp(times).strftime("%Y-%m-%d")
+            film.release_date = release_date
+        except Exception:
+            film.release_date = '-'
+            print('oops')
+
         list_response.append(film)
     return list_response

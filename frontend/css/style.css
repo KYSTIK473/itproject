@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.wrapper {
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(39, 6, 89, 1) 100%);
+    width: 100%;
+}
+.container {
+    width: 1400px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+header {
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Стили для нового элемента изображения логотипа */
+.logo-image {
+    height: 50px; /* Подберите нужную высоту */
+    width: auto;
+    display: block;
+    /* Если нужно, добавьте margin-top для вертикального выравнивания */
+}
+
+/* Удалите или закомментируйте старый блок .logo, если он был для текста */
+/*
+header .logo {
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 800;
+}
+*/
+
+header nav {
+    /* Задайте nav достаточную ширину, чтобы ul мог распределить элементы */
+    /* Можно начать с auto, но если не сработает, попробуйте фиксированное значение */
+    width: auto; /* Снова установим auto, но если что, вернемся к фиксированной */
+    flex-grow: 1; /* Позволяет nav занимать доступное пространство */
+    display: flex; /* Сделаем nav flex-контейнером, чтобы ul можно было прижать вправо */
+    justify-content: flex-end; /* Прижимаем ul к правому краю nav */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    /* Удаляем justify-content отсюда, так как его будет контролировать nav */
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    /* width: 100%; /* Убираем, если flex-grow на nav и justify-content на nav */
+    /* Используем gap для отступов между элементами */
+    gap: 30px; /* Увеличьте это значение, если нужно больше места */
+}
+
+/* Если gap не сработает, вернитесь к margin-right на li, но БЕЗ !important */
+/*
+header nav ul li {
+    margin-right: 30px;
+}
+header nav ul li:last-child {
+    margin-right: 0;
+}
+*/
+
+
+header nav ul li {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header nav ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header nav ul li.active::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: #6F00FF;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
+    left: -48px;
+    margin-top: 10px;
+}
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    border-bottom: 5px solid #421380;
+}
+
+header nav ul li.btn a,
+.auth-section .btn {
+    background: #6F00FF;
+    padding: 9px 17px;
+    border-radius: 5px;
+    transition: all 500ms ease;
+    color: white !important;
+    border-bottom: none !important;
+}
+
+header nav ul li.btn a:hover,
+.auth-section .btn:hover {
+    background: #b300ff;
+    transform: scale(1.05);
+}
+
+.hero {
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero--info {
+    width: 530px;
+    padding-top: 70px;
+}
+
+.hero--info h2{
+    color: #6F00FF;
+    font-size: 20px;
+    font-weight: 600;
+}
+.hero--info h1{
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.hero--info p{
+    font-weight: 500;
+    line-height: 170%;
+    margin: 30px 0;
+}
+
+.hero--info .btn {
+    background: #6F00FF;
+    color: #fff;
+    border-radius: 50px;
+    padding: 15px 30px;
+    border: 0;
+    transition: all 500ms ease;
+    font-size: 17px;
+}
+
+.hero--info .btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background: #b300ff;
+}
+
+.hero img {
+    position: absolute;
+    top: -250px;
+    right: -350px;
+    border-radius: 5px;
+    scale: 0.5;
+}
+
+.trending {
+    padding-top: 50px;
+}
+.trending h3 {
+    font-weight: 600;
+    font-size: 31px;
+}
+
+.trending .see-all {
+    color: #fff;
+    background: #6F00FF;
+    border-radius: 5px;
+    padding: 12px 23px;
+    float: right;
+    display: block;
+    transition: all 500ms ease;
+}
+
+.trending .see-all:hover {
+    transform: scale(1.1);
+    background: #b300ff;
+}
+
+.trending .films {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 50px 0;
+}
+
+.trending .films span {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.trending .films span img {
+    position: relative;
+    top: 21px;
+    margin-right: -5px;
+    margin-bottom: -5px;
+}
+
+.trending .films img {
+    border-radius: 5px;
+}
+
+.auth-section {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    transition: transform 0.3s;
+}
+
+.user-avatar:hover img {
+    transform: scale(1.1);
+}
+
+#sign-in-btn {
+    display: block;
+}
+
+.user-avatar {
+     display: none;
+}
