@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieSearch - Список фильмов</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/movies_list.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header-content"> <h1>MovieSearch</h1>
+            <a href="index.html" class="button home-button">На Главную</a> </div>
+        <form class="search-bar" id="search-form">
+            <input type="text" id="search-input" placeholder="Введите название фильма">
+            <button type="submit">Искать</button>
+        </form>
+    </div>
+
+    <div class="results-container">
+        <p id="found-count">Найдено фильмов: 0</p>
+        <div id="movies-list-container">
+            <p>Загрузка фильмов...</p>
+        </div>
+        <div class="pagination">
+            <button id="prev-page-btn" disabled>Назад</button>
+            <button id="next-page-btn">Вперед</button>
+        </div>
+    </div>
+
+    <script src="../scripts/movies_list.js"></script>
+</body>
+</html>

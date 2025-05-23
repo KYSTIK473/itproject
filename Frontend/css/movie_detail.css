@@ -1,0 +1,175 @@
+.container {
+    width: 90%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    padding: 30px;
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.movie-poster {
+    flex: 0 0 300px;
+    height: 450px; /* Fixed height for consistent poster size */
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #6F00FF; /* Border for posters */
+}
+
+.movie-details {
+    flex: 1;
+    min-width: 300px;
+}
+
+h1 {
+    color: #6F00FF; /* Primary heading color from your other CSS */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 2.8em; /* Larger title */
+    font-weight: 700;
+}
+
+.tagline {
+    font-style: italic;
+    color: #bbb; /* Slightly lighter gray */
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.overview {
+    line-height: 1.7; /* Improved readability */
+    margin-bottom: 30px;
+    font-size: 1.05em;
+    color: #cccccc;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 15px 25px; /* Increased gap */
+    margin-bottom: 30px;
+    font-size: 1em;
+}
+
+.info-grid strong {
+    color: #e0e0e0;
+    font-weight: 600; /* Bolder labels */
+    white-space: nowrap; /* Keep labels on one line */
+}
+
+.info-grid span {
+    color: #ffffff; /* Pure white for values */
+}
+
+h3 {
+    color: #007bff; /* Consistent sub-heading color */
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    padding-bottom: 5px;
+}
+
+.meta-tags span {
+    background-color: #4a4a4a; /* Darker tag background */
+    padding: 8px 15px; /* More padding for tags */
+    border-radius: 20px; /* Pill-shaped tags */
+    margin-right: 12px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 0.9em;
+    color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+.meta-tags span:hover {
+    background-color: #5a5a5a; /* Slightly lighter on hover */
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 40px; /* More space from container */
+    padding: 15px 30px; /* Larger button */
+    background-color: #6F00FF; /* Button style from your other CSS */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; /* Rounded corners */
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background-color: #8a2be2;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+    }
+    .movie-poster {
+        flex: none;
+        width: 80%;
+        max-width: 300px;
+        height: auto; /* Allow height to adjust */
+    }
+    .movie-details {
+        min-width: unset;
+        width: 100%;
+        text-align: center; /* Center text on smaller screens */
+    }
+    h1, .tagline, .overview {
+        text-align: center;
+    }
+    .info-grid {
+        grid-template-columns: 1fr; /* Stack labels and values */
+        text-align: left; /* Align text in grid to left */
+    }
+    .info-grid strong {
+        width: 100%;
+        text-align: center; /* Center labels when stacked */
+        margin-bottom: 5px;
+    }
+    .info-grid span {
+        width: 100%;
+        text-align: center; /* Center values when stacked */
+    }
+    .meta-tags {
+        text-align: center; /* Center tags */
+    }
+    h3 {
+        text-align: center;
+    }
+}
+
+/* Пример стилей для movie_detail.css */
+.stars {
+    cursor: pointer;
+    display: inline-block; /* Чтобы звезды были в строку */
+}
+
+.star {
+    font-size: 2em; /* Размер звезд */
+    color: #ccc;    /* Цвет невыбранной звезды */
+    margin-right: 5px;
+    transition: color 0.2s ease-in-out; /* Плавный переход цвета */
+}
+
+.star:hover,
+.star.selected {
+    color: #f5c518; /* Цвет звезды при наведении или выборе (золотой) */
+}
+
+#star-rating-section h3 {
+    margin-bottom: 10px;
+}
